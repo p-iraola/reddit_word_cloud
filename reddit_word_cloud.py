@@ -15,17 +15,15 @@ reddit_read_only = praw.Reddit(client_id='', client_secret='', user_agent='')
 url = ''
 submission = reddit_read_only.submission(url=url)
 
-# Expand all MoreComments objects and extract the comment bodies into a single list
+#Extract comment bodies into a single list
 submission.comments.replace_more(limit=None)
 post_comments = [comment.body for comment in submission.comments.list()]
 
-#Concatenate all the comment bodies into a single string
+#Turn comments into a string and that string into a list
 post_comments = " ".join(post_comments).lower()
-
-#Split string into a list of words
 post_comments = re.findall(r'\w+', post_comments)
 
-#Exclude the stop words
+#Exclude stop words
 post_comments = [word for word in post_comments if not word in stop_words]
 
 #Get frequency of each word in the list
