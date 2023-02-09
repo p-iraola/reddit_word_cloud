@@ -9,10 +9,10 @@ from wordcloud import WordCloud
 stop_words = set(stopwords.words('english'))
 
 #Add Reddit API information
-reddit_read_only = praw.Reddit(client_id='QE3wRk_wltunBxw2aCGFVg', client_secret='dfScNZts4H2XSeEBEVwlcTQX_pePug', user_agent='creamcheesenips')
+reddit_read_only = praw.Reddit(client_id='', client_secret='', user_agent='')
 
 #Add URL
-url = 'https://www.reddit.com/r/AskReddit/comments/10y466h/what_is_the_best_pixar_movie/'
+url = ''
 submission = reddit_read_only.submission(url=url)
 
 # Expand all MoreComments objects and extract the comment bodies into a single list
